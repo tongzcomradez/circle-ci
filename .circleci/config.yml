@@ -15,7 +15,7 @@ jobs:
           name: Print the Current Time
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              "echo ${CIRCLE_BRANCH}"
+              echo "master"
             el
-              "echo {Another}"
+              echo "Another"
             fi
