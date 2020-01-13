@@ -47,11 +47,11 @@ workflows:
           <<: *filter_only_tag
       - deploy:
           <<: *context_staging
-          <<: *filter_only_tag_prod
+          <<: *filter_only_tag_staging
           requires:
             - build
       - deploy:
           <<: *context_prod
-          <<: *filter_only_tag_staging
+          <<: *filter_only_tag_prod
           requires:
             - build
