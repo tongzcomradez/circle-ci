@@ -37,7 +37,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: echo ${GREETING} ${CIRCLE_BUILD_NUM}.
+      - run: echo ${GREETING} ${CIRCLE_WORKFLOW_ID}.
 
 workflows:
   version: 2
