@@ -19,8 +19,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+        name: Greeting
+        command: echo Hello, world.
 
   deploy:
     docker:
@@ -28,10 +28,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo ${GREETING}.
-
-
+        name: Greeting
+        command: echo ${GREETING}.
 
 workflows:
   version: 2
