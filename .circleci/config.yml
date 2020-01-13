@@ -1,15 +1,15 @@
-#context_staging: &context_staging
-#  context: staging
-#
-#context_prod: &context_prod
-#  context: prod
-#
-#filter_only_tag: &filter_only_tag
-#  filters:
-#    branches:
-#      ignore: /.*/
-#    tags:
-#      only: /^[release|staging|test]-v[\d]+.[\d]+.[\d]+/
+context_staging: &context_staging
+  context: staging
+
+context_prod: &context_prod
+  context: prod
+
+filter_only_tag: &filter_only_tag
+  filters:
+    branches:
+      ignore: /.*/
+    tags:
+      only: /^[release|staging|test]-v[\d]+.[\d]+.[\d]+/
 
 version: 2.1
 jobs:
@@ -18,29 +18,25 @@ jobs:
     steps:
       - checkout
       - run: echo Hello, world.
-#        name: Greeting
-#        command: echo Hello, world.
 
-#  deploy:
-#    machine: true
-#    steps:
-#      - checkout
-#      - run:
-#        name: Greeting
-#        command: echo ${GREETING}.
+  deploy:
+    machine: true
+    steps:
+      - checkout
+      - run: echo ${GREETING}.
 
 workflows:
   version: 2
   publish:
     jobs:
       - build
-#      - deploy:
-#          <<: *context_staging
-#          <<: *filter_only_tag
-#          requires:
-#            - build_and_publish
-#      - deploy:
-#          <<: *context_prod
-#          <<: *filter_only_tag
-#          requires:
-#            - build_and_publish
+      - deploy:
+          <<: *context_staging
+          <<: *filter_only_tag
+          requires:
+            - build_and_publish
+      - deploy:
+          <<: *context_prod
+          <<: *filter_only_tag
+          requires:
+            - build_and_publish
