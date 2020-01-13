@@ -29,7 +29,8 @@ workflows:
   version: 2
   publish:
     jobs:
-      - build
+      - build:
+          <<: *filter_only_tag
       - deploy:
           <<: *context_staging
           <<: *filter_only_tag
