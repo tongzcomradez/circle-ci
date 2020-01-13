@@ -9,7 +9,7 @@ filter_only_tag: &filter_only_tag
     branches:
       ignore: /.*/
     tags:
-      only: /^[release|staging|test]-v[\d]+.[\d]+.[\d]+/
+      only: /^release-v[\d]+.[\d]+.[\d]+/
 
 version: 2.1
 jobs:
