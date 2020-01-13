@@ -17,9 +17,9 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run:
-        name: Greeting
-        command: echo Hello, world.
+      - run: echo Hello, world.
+#        name: Greeting
+#        command: echo Hello, world.
 
 #  deploy:
 #    machine: true
