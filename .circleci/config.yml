@@ -51,6 +51,7 @@ workflows:
           requires:
             - build
       - deploy:
+          name: prod
           <<: *context_prod
           <<: *filter_only_tag_prod
           requires:
