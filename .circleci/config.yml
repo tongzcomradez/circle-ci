@@ -14,8 +14,7 @@ filter_only_tag: &filter_only_tag
 version: 2.1
 jobs:
   build:
-    docker:
-      - image: debian:stretch
+    machine: true
     steps:
       - checkout
       - run:
@@ -23,8 +22,7 @@ jobs:
         command: echo Hello, world.
 
   deploy:
-    docker:
-      - image: debian:stretch
+    machine: true
     steps:
       - checkout
       - run:
@@ -36,13 +34,13 @@ workflows:
   publish:
     jobs:
       - build
-      - deploy:
-          <<: *context_staging
-          <<: *filter_only_tag
-          requires:
-            - build_and_publish
-      - deploy:
-          <<: *context_prod
-          <<: *filter_only_tag
-          requires:
-            - build_and_publish
+#      - deploy:
+#          <<: *context_staging
+#          <<: *filter_only_tag
+#          requires:
+#            - build_and_publish
+#      - deploy:
+#          <<: *context_prod
+#          <<: *filter_only_tag
+#          requires:
+#            - build_and_publish
