@@ -13,4 +13,9 @@ jobs:
 
       - run:
           name: Print the Current Time
-          command: date
+          command: |
+            if ["${CIRCLE_BRANCH}" == "master"]; then
+              echo master
+            el
+              echo Another
+            fi
