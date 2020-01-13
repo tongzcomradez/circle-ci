@@ -34,9 +34,9 @@ workflows:
           <<: *context_staging
           <<: *filter_only_tag
           requires:
-            - build_and_publish
+            - build
       - deploy:
           <<: *context_prod
           <<: *filter_only_tag
           requires:
-            - build_and_publish
+            - build
