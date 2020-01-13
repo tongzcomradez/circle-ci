@@ -9,7 +9,21 @@ filter_only_tag: &filter_only_tag
     branches:
       ignore: /.*/
     tags:
-      only: /^release-v[\d]+.[\d]+.[\d]+/
+      only: /^(release|staging|all)-v[\d]+.[\d]+.[\d]+/
+
+filter_only_tag_prod: &filter_only_tag_prod
+  filters:
+    branches:
+      ignore: /.*/
+    tags:
+      only: /^(release|all)-v[\d]+.[\d]+.[\d]+/
+
+filter_only_tag_staging: &filter_only_tag_staging
+  filters:
+    branches:
+      ignore: /.*/
+    tags:
+      only: /^(staging|all)-v[\d]+.[\d]+.[\d]+/
 
 version: 2.1
 jobs:
@@ -33,11 +47,11 @@ workflows:
           <<: *filter_only_tag
       - deploy:
           <<: *context_staging
-          <<: *filter_only_tag
+          <<: *filter_only_tag_prod
           requires:
             - build
       - deploy:
           <<: *context_prod
-          <<: *filter_only_tag
+          <<: *filter_only_tag_staging
           requires:
             - build
