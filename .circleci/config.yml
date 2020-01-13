@@ -1,15 +1,15 @@
-context_staging: &context_staging
-  context: staging
-
-context_prod: &context_prod
-  context: prod
-
-filter_only_tag: &filter_only_tag
-  filters:
-    branches:
-      ignore: /.*/
-    tags:
-      only: /^[release|staging|test]-v[\d]+.[\d]+.[\d]+/
+#context_staging: &context_staging
+#  context: staging
+#
+#context_prod: &context_prod
+#  context: prod
+#
+#filter_only_tag: &filter_only_tag
+#  filters:
+#    branches:
+#      ignore: /.*/
+#    tags:
+#      only: /^[release|staging|test]-v[\d]+.[\d]+.[\d]+/
 
 version: 2.1
 jobs:
@@ -21,13 +21,13 @@ jobs:
         name: Greeting
         command: echo Hello, world.
 
-  deploy:
-    machine: true
-    steps:
-      - checkout
-      - run:
-        name: Greeting
-        command: echo ${GREETING}.
+#  deploy:
+#    machine: true
+#    steps:
+#      - checkout
+#      - run:
+#        name: Greeting
+#        command: echo ${GREETING}.
 
 workflows:
   version: 2
