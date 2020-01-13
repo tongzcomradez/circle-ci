@@ -16,6 +16,6 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               echo "master"
-            el
+            else
               echo "Another"
             fi
