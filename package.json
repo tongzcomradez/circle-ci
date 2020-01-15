@@ -1,13 +1,16 @@
 {
   "name": "my-package",
-  "version": "2.0.4",
+  "version": "3.0.2",
   "dependencies": {},
   "scripts": {
     "r": "release-it --help",
-    "release": "release-it -VV — ci — no-git.requireUpstream",
-    "release:staging": "release-it --config .release-it-staging.json"
+    "release": "release-it -VV — ci — no-git.requireUpstream --no-git.requireCleanWorkingDir",
+    "release:staging": "release-it - ci --config .release-it-staging.json --no-git.requireCleanWorkingDir"
   },
   "devDependencies": {
     "release-it": "^12.4.3"
+  },
+  "hooks": {
+    "after:release": "echo xxx"
   }
 }
