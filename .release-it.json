@@ -1,0 +1,8 @@
+{
+    "git": {
+       "tagName": "all-v${version}"
+     },
+    "npm": {
+      "publish": false
+    }
+  }
